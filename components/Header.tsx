@@ -56,7 +56,7 @@ const Header = () => {
         </Form>
         <div className="flex items-center space-x-4 mt-4 sm:mt-0 flex-1 lg:flex-none">
           <Link
-            href={''}
+            href={'/basket'}
             className="
             flex-1 
             relative 

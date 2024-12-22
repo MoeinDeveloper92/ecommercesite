@@ -11,6 +11,7 @@ import Form from 'next/form';
 import React from 'react';
 import { TrolleyIcon } from '@sanity/icons';
 import { Package } from 'lucide-react';
+import { Button } from './ui/button';
 
 //I need to access to the user
 const Header = () => {
@@ -94,7 +95,11 @@ const Header = () => {
                 </div>
               </div>
             ) : (
-              <SignInButton mode="modal" />
+              <SignInButton mode="modal">
+                <Button className=" cursor-pointer" asChild>
+                  <span>Sign In</span>
+                </Button>
+              </SignInButton>
             )}
             {user?.passkeys.length === 0 && (
               <button

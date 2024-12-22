@@ -25,7 +25,7 @@ export const categoryType = defineType({
   ],
   preview: {
     select: {
-      title: 'Title',
+      title: 'title',
       subtitle: 'description',
     },
     prepare(select) {

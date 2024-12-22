@@ -72,7 +72,7 @@ export const orderType = defineType({
           ],
           preview: {
             select: {
-              product: 'product name',
+              product: 'product.name',
               quantity: 'quantity',
               image: 'product.image',
               price: 'product.price',
@@ -137,6 +137,7 @@ export const orderType = defineType({
       email: 'email',
     },
     prepare(select) {
+      //kjansdkjn....alskdlasmdl
       const orderIdSnippet = `${select.orderId.slice(0, 5)}....${select.orderId.slice(-5)}`;
       return {
         title: `${select.name} (${orderIdSnippet})`,

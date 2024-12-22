@@ -1,4 +1,5 @@
 import { defineQuery } from 'next-sanity';
+// to fetch data
 import { sanityFetch } from '../live';
 
 export const getAllProducts = async () => {

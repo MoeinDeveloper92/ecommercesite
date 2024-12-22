@@ -49,12 +49,13 @@ export const salesType = defineType({
   ],
   preview: {
     select: {
-      title: 'Title',
+      title: 'title',
       discountAmount: 'discountAmount',
       couponCode: 'couponCode',
       isActive: 'isActive',
     },
     prepare(select) {
+      //here we do data calculation to be shown ion the preview section
       const { title, discountAmount, couponCode, isActive } = select;
       const status = isActive ? 'Active' : 'Inactive';
       return {

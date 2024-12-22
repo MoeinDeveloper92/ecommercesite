@@ -2,6 +2,7 @@ import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId } from '../env';
 
+//cleint is something betwee your app e.g Nextjs and backend which is Sanity
 export const client = createClient({
   projectId,
   dataset,

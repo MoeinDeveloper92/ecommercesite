@@ -49,6 +49,7 @@ export const productType = defineType({
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
     }),
+    //it defines whether the item is out of stock or not
     defineField({
       name: 'stock',
       title: 'Stock',

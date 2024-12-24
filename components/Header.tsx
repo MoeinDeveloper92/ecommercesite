@@ -12,11 +12,14 @@ import React from 'react';
 import { TrolleyIcon } from '@sanity/icons';
 import { Package } from 'lucide-react';
 import { Button } from './ui/button';
+import userBasketStore from '@/store/store';
 
 //I need to access to the user
 const Header = () => {
   const { user } = useUser();
-
+  const itemCount = userBasketStore((state) =>
+    state.items.reduce((total, item) => total + item.quantity, 0)
+  );
   const createClerckPassKey = async () => {
     try {
       const response = await user?.createPasskey();
@@ -71,7 +74,9 @@ const Header = () => {
             hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             <TrolleyIcon className="w-6 h-6" />
-            {/* Span UItem coun once global state impk,ennted */}
+            <span className=" absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+              {itemCount}
+            </span>
             <span>My Basket</span>
           </Link>
           {/*  User Area */}

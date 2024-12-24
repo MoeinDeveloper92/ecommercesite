@@ -71,3 +71,5 @@ const userBasketStore = create<BasketState>()(
     }
   )
 );
+
+export default userBasketStore;

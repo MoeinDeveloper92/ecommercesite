@@ -1,10 +1,13 @@
 import { getProductBySlug } from '@/sanity/lib/products/getProductBySlug';
 import { div } from 'framer-motion/client';
 import { notFound } from 'next/navigation';
+
 import React from 'react';
 import Image from 'next/image';
 import { imageUrl } from '@/sanity/lib/imageUrl';
 import { PortableText } from 'next-sanity';
+import { Button } from '@/components/ui/button';
+import AddToBasketButton from '@/components/AddToBasketButton';
 interface SlugProp {
   slug: string;
 }
@@ -49,6 +52,9 @@ const page = async ({ params }: { params: Promise<SlugProp> }) => {
                 <PortableText value={product.description} />
               )}
             </div>
+          </div>
+          <div className="mt-6">
+            <AddToBasketButton product={product} disabled={isOutOfStock} />
           </div>
         </div>
       </div>

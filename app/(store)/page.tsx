@@ -3,6 +3,8 @@ import { getAllCategories } from '@/sanity/lib/products/getAllCategories';
 import { getAllProducts } from '@/sanity/lib/products/getAllProducts';
 import ProductsView from '@/components/ProductsView';
 import BlackFridayBanner from '@/components/BlackFridayBanner';
+
+
 export default async function Home() {
   //in the server side we fetch products and the categories
   //then we pass them down as props to children

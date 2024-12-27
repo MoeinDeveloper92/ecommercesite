@@ -8,6 +8,9 @@ import Image from 'next/image';
 import AddToBasketButton from '@/components/AddToBasketButton';
 import { imageUrl } from '@/sanity/lib/imageUrl';
 import Loader from '@/components/Loader';
+import { Metadata } from '@/actions/createCheckoutSession';
+import { createCheckoutSession } from '@/actions/createCheckoutSession';
+
 const BasketPage = () => {
   const groupedItems = userBasketStore((state) => state.getGroupedItems());
   const { isSignedIn } = useAuth();
@@ -42,6 +45,16 @@ const BasketPage = () => {
 
     try {
       //here we should checkout all the stripe chjeclout
+      const metadata: Metadata = {
+        orderNumber: crypto.randomUUID(), //example : av3dls-aw12dq-123eefq-dfasf2
+        customerName: user?.fullName ?? 'Unknown',
+        customerEmail: user?.emailAddresses[0].emailAddress ?? 'Unknown',
+        clerKUserId: user!.id,
+      };
+      const checkoutUrl = await createCheckoutSession(groupedItems, metadata);
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      }
     } catch (error) {
     } finally {
       setIsLoading(false);

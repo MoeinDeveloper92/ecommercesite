@@ -7,7 +7,8 @@ const DisableDraftMode = () => {
   const environemtn = useDraftModeEnvironment();
   const router = useRouter();
 
-  //Only show disblae draftmode button when ourside of presentation tool
+  //Only show disblae draftmode button when ourside of presentation tooll
+
   if (environemtn !== 'live' && environemtn !== 'unknown') {
     return null;
   }
